@@ -5,12 +5,12 @@ function getEmployeeByName(employeeName) {
   if (employeeName === undefined) {
     return {};
   }
-  const getFirst = data.employees.filter((first) => first.firstName === employeeName);
-  if (getFirst.length === 1) {
-    return getFirst[0];
+  const getFirst = data.employees.find((first) => first.firstName === employeeName);
+  if (getFirst !== undefined) {
+    return getFirst;
   }
-  const getLast = data.employees.filter((last) => last.lastName === employeeName);
-  return getLast[0];
+  const getLast = data.employees.find((last) => last.lastName === employeeName);
+  return getLast;
 }
 
 module.exports = getEmployeeByName;
