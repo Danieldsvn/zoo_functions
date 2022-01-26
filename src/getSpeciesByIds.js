@@ -8,5 +8,5 @@ function getSpeciesByIds(id) {
   const idFiltred = data.species.filter((specie) => specie.id === id);
   return idFiltred;
 }
-console.log(getSpeciesByIds());
+// console.log(getSpeciesByIds());
 module.exports = getSpeciesByIds;
