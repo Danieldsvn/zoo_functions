@@ -17,8 +17,8 @@ function countAnimals(animal) {
     if (properties.sex === animal.sex) {
       animalSexCounter += 1;
     }
-    return animalSexCounter;
   });
+  return animalSexCounter;
 }
 
 module.exports = countAnimals;
