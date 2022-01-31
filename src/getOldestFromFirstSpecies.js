@@ -10,7 +10,7 @@ function getOldestFromFirstSpecies(id) {
   const animalId = getFirstAnimalId(id);
   const animalObject = data.species.find((aniId) => (aniId.id === animalId));
   const sortedByAge = animalObject.residents.sort((a, b) => {
-    if (a.age < b.age) {
+    if (a.age < b.age) { // https://pt.stackoverflow.com/questions/46600/como-ordenar-uma-array-de-objetos-com-array-sort
       return -1;
     }
     if (a.age > b.age) {
