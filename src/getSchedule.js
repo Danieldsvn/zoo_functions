@@ -46,16 +46,16 @@ function getScheduleByDay(day) {
   return schedule;
 }
 
-function getScheduleOftheWeek() {
+function getScheduleOfTheWeek() {
   const days = Object.keys(data.hours);
   const week = {};
-  week[days[0]] = { officeHour: officeHour('Tuesday'), exhibition: exhibition('Tuesday') };
-  week[days[1]] = { officeHour: officeHour('Wednesday'), exhibition: exhibition('Wednesday') };
-  week[days[2]] = { officeHour: officeHour('Thursday'), exhibition: exhibition('Thursday') };
-  week[days[3]] = { officeHour: officeHour('Friday'), exhibition: exhibition('Friday') };
-  week[days[4]] = { officeHour: officeHour('Saturday'), exhibition: exhibition('Saturday') };
-  week[days[5]] = { officeHour: officeHour('Sunday'), exhibition: exhibition('Sunday') };
-  week[days[6]] = { officeHour: 'CLOSED', exhibition: 'The zoo will be closed!' };
+  for (let day = 0; day < days.length; day += 1) {
+    if (day <= 5) {
+      week[days[day]] = { officeHour: officeHour(days[day]), exhibition: exhibition(days[day]) };
+    } else {
+      week[days[day]] = { officeHour: 'CLOSED', exhibition: 'The zoo will be closed!' };
+    }
+  }
   return week;
 }
 
@@ -66,7 +66,7 @@ function getSchedule(scheduleTarget) {
   if (animalSchedule(scheduleTarget) !== undefined) {
     return animalSchedule(scheduleTarget);
   }
-  return getScheduleOftheWeek();
+  return getScheduleOfTheWeek();
 }
 
 console.log(getSchedule('tapioca'));
