@@ -9,8 +9,8 @@ function animalSchedule(animal) { // Parte 4
   return animals.availability;
 }
 
-function exhibition(day) {
-  const speciesArray = []; // valores da chave exhibition
+function exhibition(day) { // Função acessória: valores da chave exhibition
+  const speciesArray = [];
   species.forEach((animal) => {
     if (animal.availability.includes(day)) {
       speciesArray.push(animal.name);
@@ -19,7 +19,7 @@ function exhibition(day) {
   return speciesArray;
 }
 
-function officeHour(day) {
+function officeHour(day) { // Função acessória: valores da chave officeHour
   const days = Object.keys(data.hours);
   let daysIndex = 0;
   for (let index = 0; index < days.length; index += 1) {
@@ -33,7 +33,7 @@ function officeHour(day) {
   return officeHourTxt;
 }
 
-function getScheduleByDay(day) {
+function getScheduleByDay(day) { // Parte 3
   const isDay = Object.keys(data.hours).find((param) => (param === day));
   if (isDay === undefined) {
     return undefined;
@@ -46,7 +46,7 @@ function getScheduleByDay(day) {
   return schedule;
 }
 
-function getScheduleOfTheWeek() {
+function getScheduleOfTheWeek() { // Parte 1
   const days = Object.keys(data.hours);
   const week = {};
   for (let day = 0; day < days.length; day += 1) {
@@ -68,8 +68,5 @@ function getSchedule(scheduleTarget) {
   }
   return getScheduleOfTheWeek();
 }
-
-console.log(getSchedule('tapioca'));
-// console.log(getSchedule());
 
 module.exports = getSchedule;
